@@ -1,2 +1,0 @@
-# CustomTextdecoderOnFetchResponse
-Created with CodeSandbox
