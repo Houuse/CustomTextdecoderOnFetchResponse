@@ -13,7 +13,12 @@ const getSomeJson = async () => {
   msg = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 
   let msgClone = msg.clone();
+  //only 1 reader allowed and when it's done reading it's done , thats why we clone
+  //https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultReader
   let cloneReader = msgClone.body.getReader();
+
+  //text decoder settings docs
+  //https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder
   let td = new TextDecoder();
   let codedArr = await cloneReader.read();
   let textBasedResult = td.decode(codedArr.value);
